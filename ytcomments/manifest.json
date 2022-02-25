@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "YT Comments",
+  "version": "1.0",
+
+  "description": "Resurrects deleted YouTubeComments in Live Chat.",
+
+  "icons": {
+    "48": "icons/logo.png"
+  },
+  "browser_action": {
+  "default_icon": {
+    "19": "buttons/tool-19.png",
+    "38": "buttons/tool-38.png"
+  },
+  "default_title": "YT Comment Undeletor",
+  "default_popup": "popup/mainmenu.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["main.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "activeTab",
+    "https://api-free.deepl.com/*"
+  ]
+}
