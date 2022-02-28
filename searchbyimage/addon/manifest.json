@@ -12,12 +12,20 @@
         "default_popup": "popup/mainmenu.html",
         "browser_style": true
     },
-    "content_scripts": [
-    {
-      "matches": ["https://pr0gramm.com/*"],
-      "js": ["content_scripts/index.js"]
-    }],
     "permissions": [
-      "https://thumb.pr0gramm.com/*"
-    ]
+      "webRequest", "webRequestBlocking", "https://pr0gramm.com/*", "https://thumb.pr0gramm.com/*", "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://pr0gramm.com/*"],
+        "js": ["content_scripts/index.js"]
+      }],
+    "background": {
+      "scripts": ["scripts/index.js"]
+    },
+    "browser_specific_settings": {
+      "gecko": {
+        "strict_min_version": "57.0a1"
+      }
+    }
 }
