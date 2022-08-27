@@ -40,8 +40,6 @@ function listener(details) {
 
     var b64image = 'data:image/jpeg;base64,' + btoa(String.fromCharCode(...new Uint8Array(event.data)))
 
-    //canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-
     var imageElem = new Image();
     await loadImage(b64image, imageElem)
 
@@ -77,19 +75,11 @@ function listener(details) {
   
     },'image/png');
 
-    diffCtx.putImageData(diff, 0, 0)
-    const hasPixels = diffCtx.getImageData(0, 0, width, height).data.some(d => !!d);
-
-
-    //var enc = new TextEncoder();
-    //filter.write(enc.encode(canvas.toDataURL('image/jpeg').replace("data:image/jpeg;base64,", "")).buffer)
     filter.write(event.data)
     filter.close();
   }
 
   filter.onstop = event => {
-
-
     //filter.close();
   }
 
